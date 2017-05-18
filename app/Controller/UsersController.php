@@ -15,6 +15,26 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator');
 
+
+    /**
+     * @return array
+     */
+    public function login()
+    {
+       if($this->request->is('post')){
+           if($this->Auth->login()){
+               return $this->redirect($this->redirectUrl());
+           }
+           $this->Session->setFlash(_("Invalis username or password.. Try Again!!!.."));
+       }
+    }
+
+    public  function logout()
+    {
+       $this->Auth->logout();
+       $this->redirect();
+    }
+
 /**
  * index method
  *
