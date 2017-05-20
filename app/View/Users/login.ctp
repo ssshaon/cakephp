@@ -1,12 +1,7 @@
 <h1>Login Here</h1>
 <?php
   echo $this->Form->create('User');
-  echo $this->Form->input('UserName');
-  echo $this->Form->input('Password');
-  echo $this->Form->input('Email');
+  echo $this->Form->input('username');
+  echo $this->Form->input('password',['type' => 'password']);
   echo $this->Form->end(_('Login'));
 ?>
-
-
-
-

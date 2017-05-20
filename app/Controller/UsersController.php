@@ -18,13 +18,14 @@ class UsersController extends AppController {
     public function beforeFilter()
     {
         parent::beforeFilter();
-      $this->Auth->allow('add');
+        $this->Auth->allow('add');
     }
+
     public function login()
     {
        if($this->request->is('post')){
            if($this->Auth->login()){
-               return $this->redirect($this->redirectUrl());
+               return $this->redirect('/users');
            }
            $this->Session->setFlash(_("Invalis username or password.. Try Again!!!.."));
        }
@@ -69,11 +70,12 @@ class UsersController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
+            $this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 			if ($this->User->save($this->request->data)) {
-				$this->Flash->success(__('The user has been saved.'));
+				$this->Session->setFlash('The user has been saved.','flash/success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The user could not be saved. Please, try again.'));
+                $this->Session->setFlash('The user could not be saved. Please, try again.','success','flash/error');
 			}
 		}
 	}

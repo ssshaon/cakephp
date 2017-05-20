@@ -1,63 +1,81 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
-?>
 <!DOCTYPE html>
-<html>
-<head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $this->fetch('title'); ?>
-	</title>
-	<?php
-		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('cake.generic');
-
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
-</head>
-<body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
-
-			<?php echo $this->Flash->render(); ?>
-
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);
-			?>
-			<p>
-				<?php echo $cakeVersion; ?>
-			</p>
-		</div>
-	</div>
-	<?php echo $this->element('sql_dump'); ?>
-</body>
+<html lang="en">
+    <head>
+        <?php echo $this->Html->charset(); ?>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Light Breeze</title>
+        <!-- Bootstrap -->
+        <link href="<?= $this->base ?>/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="<?= $this->base ?>/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- NProgress -->
+        <link href="<?= $this->base ?>/vendors/nprogress/nprogress.css" rel="stylesheet">
+        <!-- iCheck -->
+        <link href="<?= $this->base ?>/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+        <!-- bootstrap-progressbar -->
+        <link href="<?= $this->base ?>/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+        <!-- JQVMap -->
+        <link href="<?= $this->base ?>/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+        <!-- bootstrap-daterangepicker -->
+        <link href="<?= $this->base ?>/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+        <!-- Custom Theme Style -->
+        <link href="<?= $this->base ?>/build/css/custom.min.css" rel="stylesheet">
+    </head>
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <?php echo $this->element('left_sidebar');?>
+                <?php echo $this->element('top_navbar');?>
+                <div class="right_col" role="main">
+                    <?php echo $this->Flash->render(); ?>
+                    <?php echo $this->fetch('content'); ?>
+                </div>
+                <?php echo $this->element('footer');?>
+            </div>
+        </div>
+        <!-- jQuery -->
+        <script src="<?= $this->base ?>/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="<?= $this->base ?>/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="<?= $this->base ?>/vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="<?= $this->base ?>/vendors/nprogress/nprogress.js"></script>
+        <!-- Chart.js -->
+        <script src="<?= $this->base ?>/vendors/Chart.js/dist/Chart.min.js"></script>
+        <!-- gauge.js -->
+        <script src="<?= $this->base ?>/vendors/gauge.js/dist/gauge.min.js"></script>
+        <!-- bootstrap-progressbar -->
+        <script src="<?= $this->base ?>/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+        <!-- iCheck -->
+        <script src="<?= $this->base ?>/vendors/iCheck/icheck.min.js"></script>
+        <!-- Skycons -->
+        <script src="<?= $this->base ?>/vendors/skycons/skycons.js"></script>
+        <!-- Flot -->
+        <script src="<?= $this->base ?>/vendors/Flot/jquery.flot.js"></script>
+        <script src="<?= $this->base ?>/vendors/Flot/jquery.flot.pie.js"></script>
+        <script src="<?= $this->base ?>/vendors/Flot/jquery.flot.time.js"></script>
+        <script src="<?= $this->base ?>/vendors/Flot/jquery.flot.stack.js"></script>
+        <script src="<?= $this->base ?>/vendors/Flot/jquery.flot.resize.js"></script>
+        <!-- Flot plugins -->
+        <script src="<?= $this->base ?>/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+        <script src="<?= $this->base ?>/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+        <script src="<?= $this->base ?>/vendors/flot.curvedlines/curvedLines.js"></script>
+        <!-- DateJS -->
+        <script src="<?= $this->base ?>/vendors/DateJS/build/date.js"></script>
+        <!-- JQVMap -->
+        <script src="<?= $this->base ?>/vendors/jqvmap/dist/jquery.vmap.js"></script>
+        <script src="<?= $this->base ?>/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+        <script src="<?= $this->base ?>/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+        <!-- bootstrap-daterangepicker -->
+        <script src="<?= $this->base ?>/vendors/moment/min/moment.min.js"></script>
+        <script src="<?= $this->base ?>/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <!-- Custom Theme Scripts -->
+        <script src="<?= $this->base ?>/build/js/custom.min.js"></script>
+        <!--<?php echo $this->element('sql_dump'); ?>-->
+    </body>
 </html>
