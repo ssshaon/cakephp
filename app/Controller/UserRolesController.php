@@ -32,6 +32,16 @@ class UserRolesController extends AppController {
  * @param string $id
  * @return void
  */
+
+    public function beforeFilter()
+    {
+        if (AuthComponent::user('user_role_id') != 1) {
+            $this->Session->setFlash('You are not authenticated to view this page','flash/error');
+            $this->redirect('/');
+        }
+        //If Admin
+    }
+
 	public function view($id = null) {
 		if (!$this->UserRole->exists($id)) {
 			throw new NotFoundException(__('Invalid user role'));

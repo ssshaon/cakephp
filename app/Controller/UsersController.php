@@ -15,6 +15,8 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator');
 
+
+
     public function beforeFilter()
     {
         parent::beforeFilter();

@@ -12,7 +12,7 @@
             echo $this->Form->input('name',['class' => 'form-control']);
             echo $this->Form->input('description',['class' => 'form-control']);
             echo $this->Form->input('category_id',['class' => 'form-control']);
-            echo $this->Form->input('price',['class' => 'form-control']);
+            echo $this->Form->input('tag_id',['class' => 'form-control']);
             echo $this->Form->input('ranking',['class' => 'form-control']);
              echo $this->Form->input('weight',['class' => 'form-control']);
             ?>

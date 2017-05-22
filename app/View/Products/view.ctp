@@ -23,9 +23,9 @@
                 <?php echo h($product['Category']['category_id']); ?>
                 &nbsp;
             </dd>
-            <dt><?php echo __('Price'); ?></dt>
+            <dt><?php echo __('Tag Id'); ?></dt>
             <dd>
-                <?php echo h($product['Product']['price']); ?>
+                <?php echo h($product['Tag']['tag_id']); ?>
                 &nbsp;
             </dd>
              <dt><?php echo __('Ranking'); ?></dt>

@@ -20,6 +20,15 @@ class ClientsController extends AppController {
  *
  * @return void
  */
+    public function beforeFilter()
+    {
+        if (AuthComponent::user('user_role_id') != 1) {
+            $this->Session->setFlash('You are not authenticated to view this page','flash/error');
+            $this->redirect('/');
+        }
+        //If Admin
+    }
+
 	public function index() {
 		$this->Client->recursive = 0;
 		$this->set('clients', $this->Paginator->paginate());

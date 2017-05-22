@@ -34,5 +34,5 @@ class AppController extends Controller
 {
     public $helpers = array('Html', 'Form', 'Session');
     public $components = array('Session', 'Auth');
-    
+
 }

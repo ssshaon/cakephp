@@ -1,12 +1,12 @@
 <?php
 App::uses('AppController', 'Controller');
 /**
- * Videos Controller
+ * Tags Controller
  *
- * @property Video $Video
+ * @property Tag $Tag
  * @property PaginatorComponent $Paginator
  */
-class VideosController extends AppController {
+class TagsController extends AppController {
 
 /**
  * Components
@@ -29,10 +29,10 @@ class VideosController extends AppController {
         }
         //If Admin
     }
-    
+
 	public function index() {
-		$this->Video->recursive = 0;
-		$this->set('videos', $this->Paginator->paginate());
+		$this->Tag->recursive = 0;
+		$this->set('tags', $this->Paginator->paginate());
 	}
 
 /**
@@ -43,11 +43,11 @@ class VideosController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		if (!$this->Video->exists($id)) {
-			throw new NotFoundException(__('Invalid video'));
+		if (!$this->Tag->exists($id)) {
+			throw new NotFoundException(__('Invalid tag'));
 		}
-		$options = array('conditions' => array('Video.' . $this->Video->primaryKey => $id));
-		$this->set('video', $this->Video->find('first', $options));
+		$options = array('conditions' => array('Tag.' . $this->Tag->primaryKey => $id));
+		$this->set('tag', $this->Tag->find('first', $options));
 	}
 
 /**
@@ -57,12 +57,12 @@ class VideosController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-			$this->Video->create();
-			if ($this->Video->save($this->request->data)) {
-				$this->Flash->success(__('The video has been saved.'));
+			$this->Tag->create();
+			if ($this->Tag->save($this->request->data)) {
+				$this->Flash->success(__('The tag has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The video could not be saved. Please, try again.'));
+				$this->Flash->error(__('The tag could not be saved. Please, try again.'));
 			}
 		}
 	}
@@ -75,19 +75,19 @@ class VideosController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-		if (!$this->Video->exists($id)) {
-			throw new NotFoundException(__('Invalid video'));
+		if (!$this->Tag->exists($id)) {
+			throw new NotFoundException(__('Invalid tag'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Video->save($this->request->data)) {
-				$this->Flash->success(__('The video has been saved.'));
+			if ($this->Tag->save($this->request->data)) {
+				$this->Flash->success(__('The tag has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The video could not be saved. Please, try again.'));
+				$this->Flash->error(__('The tag could not be saved. Please, try again.'));
 			}
 		} else {
-			$options = array('conditions' => array('Video.' . $this->Video->primaryKey => $id));
-			$this->request->data = $this->Video->find('first', $options);
+			$options = array('conditions' => array('Tag.' . $this->Tag->primaryKey => $id));
+			$this->request->data = $this->Tag->find('first', $options);
 		}
 	}
 
@@ -99,15 +99,15 @@ class VideosController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
-		$this->Video->id = $id;
-		if (!$this->Video->exists()) {
-			throw new NotFoundException(__('Invalid video'));
+		$this->Tag->id = $id;
+		if (!$this->Tag->exists()) {
+			throw new NotFoundException(__('Invalid tag'));
 		}
 		$this->request->allowMethod('post', 'delete');
-		if ($this->Video->delete()) {
-			$this->Flash->success(__('The video has been deleted.'));
+		if ($this->Tag->delete()) {
+			$this->Flash->success(__('The tag has been deleted.'));
 		} else {
-			$this->Flash->error(__('The video could not be deleted. Please, try again.'));
+			$this->Flash->error(__('The tag could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
