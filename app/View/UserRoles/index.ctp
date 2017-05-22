@@ -17,15 +17,15 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($user_roles as $user_role): ?>
+            <?php foreach ($userRoles as $user_role): ?>
             <tr>
-                <td><?php echo h($user_role['User Role']['role']); ?>&nbsp;</td>
+                <td><?php echo h($user_role['UserRole']['role']); ?>&nbsp;</td>
 
-                <td><?php echo h($user_role['User Role']['status']); ?></td>
+                <td><?php echo h($user_role['UserRole']['status']); ?></td>
                 <td class="actions">
-                    <?php echo $this->Html->link(__('View'), array('action' => 'view', $user_role['User Role']['id'])); ?>
-                    <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user_role['User Role']['id'])); ?>
-                    <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user_role['User Role']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $user_role['User Role']['id']))); ?>
+                    <?php echo $this->Html->link(__('View'), array('action' => 'view', $user_role['UserRole']['id'])); ?>
+                    <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user_role['UserRole']['id'])); ?>
+                    <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user_role['UserRole']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $user_role['UserRole']['id']))); ?>
                 </td>
             </tr>
             <?php endforeach; ?>
