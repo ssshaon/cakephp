@@ -53,4 +53,12 @@ class UserRole extends AppModel {
 			),
 		),
 	);
+
+	public $hasMany = array(
+        'User' => array(
+            'className' => 'User',
+            'foreignKey' => 'user_role_id',
+            'dependent' => false
+        ),
+    );
 }

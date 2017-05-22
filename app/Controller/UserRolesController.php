@@ -49,10 +49,10 @@ class UserRolesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->UserRole->create();
 			if ($this->UserRole->save($this->request->data)) {
-				$this->Flash->success(__('The user role has been saved.'));
+				$this->Session->setFlash('The user role has been saved.','flash/success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The user role could not be saved. Please, try again.'));
+                $this->Session->setFlash('The user role could not be saved. Please, try again.','flash/error');
 			}
 		}
 	}
@@ -93,7 +93,6 @@ class UserRolesController extends AppController {
 		if (!$this->UserRole->exists()) {
 			throw new NotFoundException(__('Invalid user role'));
 		}
-		$this->request->allowMethod('post', 'delete');
 		if ($this->UserRole->delete()) {
 			$this->Flash->success(__('The user role has been deleted.'));
 		} else {

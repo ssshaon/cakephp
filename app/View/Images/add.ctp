@@ -1,25 +1,22 @@
-<div class="images form">
-<?php echo $this->Form->create('Image'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Image'); ?></legend>
-	<?php
-		echo $this->Form->input('name');
-		echo $this->Form->input('url');
-		echo $this->Form->input('image_type');
-		echo $this->Form->input('type_no');
-		echo $this->Form->input('status');
-		echo $this->Form->input('is_active');
-		echo $this->Form->input('is_delete');
-		echo $this->Form->input('created_by');
-		echo $this->Form->input('modified_by');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<div class="x_panel">
+	<div class="x_title">
+		<h2>Image Add</h2>
+		<ul class="nav navbar-right panel_toolbox">
+			<li><a href="<?= $this->base ?>/images"><i class="fa fa-list"></i></a></li>
+		</ul>
+		<div class="clearfix"></div>
+	</div>
+	<div class="x_content">
+        <?php echo $this->Form->create('Image'); ?>
+            <?php
+            echo $this->Form->input('name',['class' => 'form-control']);
+            echo $this->Form->input('url',['class' => 'form-control']);
+            echo $this->Form->input('image_type',['class' => 'form-control']);
+            echo $this->Form->input('type_no',['class' => 'form-control']);
 
-		<li><?php echo $this->Html->link(__('List Images'), array('action' => 'index')); ?></li>
-	</ul>
+            ?>
+            <br/>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        <?php echo $this->Form->end(); ?>
+	</div>
 </div>

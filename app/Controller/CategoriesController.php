@@ -15,6 +15,15 @@ class CategoriesController extends AppController {
  */
 	public $components = array('Paginator');
 
+	public function beforeFilter()
+    {
+        if (AuthComponent::user('user_role_id') != 1) {
+            $this->Session->setFlash('You are not authenticated to view this page','flash/error');
+            $this->redirect('/');
+        }
+        //If Admin
+    }
+
 /**
  * index method
  *

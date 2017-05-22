@@ -103,4 +103,13 @@ class User extends AppModel {
 			),
 		),
 	);
+
+    public $belongsTo = array(
+        'UserRole' => array(
+            'className' => 'UserRole',
+            'foreignKey' => 'user_role_id'
+        ),
+    );
+
+
 }

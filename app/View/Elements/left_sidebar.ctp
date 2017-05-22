@@ -23,6 +23,13 @@
                 <ul class="nav side-menu">
                     <li><a href="<?= $this->base?>/"><i class="fa fa-home"></i> Home </span></a></li>
                 <li><a href="<?= $this->base?>/users"><i class="fa fa-user"></i> User </span></a></li>
+                <li><a href="<?= $this->base?>/user_roles"><i class="fa fa-users"></i> User Role </span></a></li>
+                <li><a href="<?= $this->base?>/categories"><i class="fa fa-list"></i> Category </span></a></li>
+                <li><a href="<?= $this->base?>/clients"><i class="fa fa-user"></i> Client </span></a></li>
+                <li><a href="<?= $this->base?>/images"><i class="fa fa-image"></i> Image </span></a></li>
+                <li><a href="<?= $this->base?>/products"><i class="fa fa-list"></i> Product </span></a></li>
+                <li><a href="<?= $this->base?>/projects"><i class="fa fa-table"></i> Project </span></a></li>
+                <li><a href="<?= $this->base?>/videos"><i class="fa fa-desktop"></i> Video </span></a></li>
                     <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="form.html">General Form</a></li>

@@ -13,6 +13,7 @@
             echo $this->Form->input('email',['class' => 'form-control']);
             echo $this->Form->input('username',['class' => 'form-control']);
             echo $this->Form->input('password',['class' => 'form-control']);
+            echo $this->Form->input('user_role_id',['class' => 'form-control']);
             ?>
             <br/>
             <button type="submit" class="btn btn-primary">Submit</button>

@@ -1,29 +1,23 @@
-<div class="products form">
-<?php echo $this->Form->create('Product'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Product'); ?></legend>
-	<?php
-		echo $this->Form->input('name');
-		echo $this->Form->input('description');
-		echo $this->Form->input('category_id');
-		echo $this->Form->input('price');
-		echo $this->Form->input('ranking');
-		echo $this->Form->input('weight');
-		echo $this->Form->input('status');
-		echo $this->Form->input('is_active');
-		echo $this->Form->input('is_delete');
-		echo $this->Form->input('created_by');
-		echo $this->Form->input('modified_by');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Products'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-	</ul>
+<div class="x_panel">
+	<div class="x_title">
+		<h2>Product Add</h2>
+		<ul class="nav navbar-right panel_toolbox">
+			<li><a href="<?= $this->base ?>/products"><i class="fa fa-list"></i></a></li>
+		</ul>
+		<div class="clearfix"></div>
+	</div>
+	<div class="x_content">
+        <?php echo $this->Form->create('Product'); ?>
+            <?php
+            echo $this->Form->input('name',['class' => 'form-control']);
+            echo $this->Form->input('description',['class' => 'form-control']);
+            echo $this->Form->input('category_id',['class' => 'form-control']);
+            echo $this->Form->input('price',['class' => 'form-control']);
+            echo $this->Form->input('ranking',['class' => 'form-control']);
+             echo $this->Form->input('weight',['class' => 'form-control']);
+            ?>
+            <br/>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        <?php echo $this->Form->end(); ?>
+	</div>
 </div>
